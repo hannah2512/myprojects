@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number to find its factorial: ");
+        int number = scanner.nextInt();
+
+        long factorial = calculateFactorialIteratively(number);
+        System.out.println("Factorial (Iterative) of " + number + " is: " + factorial);
+
+        long recursiveFactorial = calculateFactorialRecursively(number);
+        System.out.println("Factorial (Recursive) of " + number + " is: " + recursiveFactorial);
+    }
+
+    // Iterative method to calculate factorial
+    public static long calculateFactorialIteratively(int n) {
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    // Recursive method to calculate factorial
+    public static long calculateFactorialRecursively(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        return n * calculateFactorialRecursively(n - 1);
+    }
+}
